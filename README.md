@@ -1,5 +1,5 @@
 ### Tango with Go
-These are my go practice files.
+These are my **go** practice files.
 This repository is my golang playground, The aims of these repository are:
 * Learn go
 * Play around with go
