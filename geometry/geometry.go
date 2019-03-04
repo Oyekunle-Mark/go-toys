@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"geometry/rectangle"
+	"github.com/oyekunle-mark/go-toys/geometry/rectangle"
 	"log"
 )
 
