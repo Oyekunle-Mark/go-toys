@@ -7,5 +7,3 @@ This repository is my golang playground, The aims of these repository are:
 
 Most of these examples are recreations of the exercises on [golangbot.com](https:golangbot.com)
 Remember
-> A little learning is a dangerous thing...
-
