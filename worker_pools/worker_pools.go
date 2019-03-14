@@ -30,7 +30,7 @@ func digits(number int) int {
 		sum += digit
 		no /= 10
 	}
-	// add a two second delay
+	// add a two second delay to simulate a real program
 	time.Sleep(2 * time.Second)
 
 	return sum
