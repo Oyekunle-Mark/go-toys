@@ -1,3 +1,5 @@
+// this program shows the core functionalities of worker groups
+
 package main
 
 import (
@@ -83,7 +85,7 @@ func main() {
 	go result(done)
 
 	numberOfWorkers := 10
-	createWorkerPool(numberOfWorkers)
+	go createWorkerPool(numberOfWorkers)
 	
 	<-done
 
