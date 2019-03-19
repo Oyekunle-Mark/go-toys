@@ -9,20 +9,23 @@ func main() {
 	f, err := os.Create("test.txt")
 	if err != nil {
 		fmt.Println(err)
+		f.Close()
 		return
 	}
 
-	d2 := []byte{104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100}
-    n2, err := f.Write(d2)
-    if err != nil {
-        fmt.Println(err)
-        f.Close()
-        return
+	d := []string{"Welcome to the world of Go1.", "Go is a compiled language.", "It is easy to learn Go."}
+
+    for _, v := range d {
+        fmt.Fprintln(f, v)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
     }
-    fmt.Println(n2, "bytes written successfully")
     err = f.Close()
     if err != nil {
         fmt.Println(err)
         return
     }
+    fmt.Println("file written successfully")
 }
