@@ -3,17 +3,34 @@ package main
 import (
 	"fmt"
 	"flag"
-	"io/ioutil"
+	"os"
+	"bufio"
+	"log"
 )
 
 func main() {
 	fptr := flag.String("fpath", "test.txt", "file path to be read from")
 	flag.Parse()
-	data, err := ioutil.ReadFile(*fptr)
+
+	f, err := os.Open(*fptr)
 	if err != nil {
-		fmt.Println("File reading error", err)
-		return
+		log.Fatal(err)
 	}
 
-	fmt.Println("Contents of file: ", string(data))
+	defer func() {
+		if err = f.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	r := bufio.NewReader(f)
+	b := make([]byte, 3)
+	for {
+		_, err := r.Read(b)
+		if err != nil {
+			fmt.Println("Error reading file:", err)
+			break
+		}
+		fmt.Println(string(b))
+	}
 }
