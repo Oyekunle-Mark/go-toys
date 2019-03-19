@@ -23,14 +23,12 @@ func main() {
 		}
 	}()
 
-	r := bufio.NewReader(f)
-	b := make([]byte, 3)
-	for {
-		_, err := r.Read(b)
-		if err != nil {
-			fmt.Println("Error reading file:", err)
-			break
-		}
-		fmt.Println(string(b))
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		fmt.Println(s.Text())
+	}
+	err = s.Err()
+	if err != nil {
+		log.Fatal(err)
 	}
 }
