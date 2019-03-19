@@ -55,7 +55,7 @@ func main() {
 		customerId: 56,
 	}
 	createQuery(o)
-
+ 
 	e := employee {
 		name: "Oyekunle",
 		id: 666,
