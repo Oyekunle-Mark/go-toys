@@ -1,1 +1,2 @@
 This is sample text file for a small go file reading program.
+Another line has been added to demonstrate reading a file line by line.
