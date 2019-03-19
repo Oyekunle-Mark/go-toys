@@ -6,26 +6,22 @@ import (
 )
 
 func main() {
-	f, err := os.Create("test.txt")
-	if err != nil {
-		fmt.Println(err)
-		f.Close()
-		return
-	}
-
-	d := []string{"Welcome to the world of Go1.", "Go is a compiled language.", "It is easy to learn Go."}
-
-    for _, v := range d {
-        fmt.Fprintln(f, v)
-        if err != nil {
-            fmt.Println(err)
-            return
-        }
+	f, err := os.OpenFile("test.txt", os.O_APPEND|os.O_WRONLY, 0644)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    newLine := "File handling is easy."
+    _, err = fmt.Fprintln(f, newLine)
+    if err != nil {
+        fmt.Println(err)
+                f.Close()
+        return
     }
     err = f.Close()
     if err != nil {
         fmt.Println(err)
         return
     }
-    fmt.Println("file written successfully")
+    fmt.Println("file appended successfully")
 }
